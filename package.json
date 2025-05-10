@@ -1,0 +1,37 @@
+{
+  "name": "book-search-engine",
+  "version": "1.0.0",
+  "description": "A MERN stack book search engine with GraphQL",
+  "main": "server/dist/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server/dist/server.js",
+    "dev": "concurrently \"cd server && npm run watch\" \"cd client && npm run dev\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "build": "concurrently \"cd server && npm run build\" \"cd client && npm run build\" && node scripts/post-build.js || node scripts/emergency-build.js",
+    "render-build": "npm install && npm run build",
+    "postbuild": "node scripts/post-build.js || node scripts/emergency-build.js",
+    "emergency": "node scripts/emergency-build.js"
+  },
+  "keywords": [
+    "mern",
+    "graphql",
+    "apollo",
+    "react",
+    "books"
+  ],
+  "author": "Adeleine Alger",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongodb": "^6.15.0",
+    "mongoose": "^8.0.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

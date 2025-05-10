@@ -1,0 +1,219 @@
+:root {
+  --primary-color: #4a25aa;
+  --secondary-color: #6a3de8;
+  --accent-color: #8257fe;
+  --light-color: #f8f9fa;
+  --dark-color: #212529;
+  --gray-color: #6c757d;
+  --success-color: #198754;
+  --danger-color: #dc3545;
+  --font-family: 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --border-radius: 0.5rem;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease-in-out;
+}
+
+/* Global styles */
+body {
+  font-family: var(--font-family);
+  background-color: #f9f9f9;
+  color: var(--dark-color);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Rubik Mono One', sans-serif;
+  font-weight: 700;
+}
+
+/* Card styling */
+.card {
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  margin-bottom: 1.5rem;
+  border: none;
+  transition: var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-img-top {
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+  height: 300px;
+  object-fit: cover;
+}
+
+.card-title {
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+/* Button styling */
+.btn {
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  padding: 0.5rem 1.5rem;
+  transition: var(--transition);
+}
+
+.btn-success {
+  background-color: var(--success-color);
+  border-color: var(--success-color);
+}
+
+.btn-success:hover {
+  background-color: #146c43;
+  border-color: #146c43;
+}
+
+.btn-info {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+}
+
+.btn-info:hover {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  color: white;
+}
+
+.btn-danger {
+  background-color: var(--danger-color);
+  border-color: var(--danger-color);
+}
+
+.btn-danger:hover {
+  background-color: #bb2d3b;
+  border-color: #bb2d3b;
+}
+
+/* Header section */
+.bg-dark {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;
+}
+
+/* Form controls */
+.form-control {
+  border-radius: var(--border-radius);
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ced4da;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 0.25rem rgba(106, 61, 232, 0.25);
+  border-color: var(--accent-color);
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .card-img-top {
+    height: 200px;
+  }
+  
+  h1 {
+    font-size: 1.75rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Navigation */
+.navbar {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: rgba(255, 255, 255, 1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.row {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Make text more readable */
+.card-text {
+  color: #444;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Author text */
+.small {
+  color: var(--gray-color);
+  font-weight: 300;
+  font-style: italic;
+}
+
+/* Modal styling */
+.modal-content {
+  border-radius: var(--border-radius);
+}
+
+.modal-header {
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.modal-footer {
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+}
+
+/* Nav tabs */
+.nav-tabs .nav-link {
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+  font-weight: 600;
+  color: var(--gray-color);
+}
+
+.nav-tabs .nav-link.active {
+  color: var(--primary-color);
+  border-color: #dee2e6 #dee2e6 #fff;
+}
+
+/* Alerts */
+.alert {
+  border-radius: var(--border-radius);
+}
+
+/* Loading spinner */
+.spinner-border {
+  color: var(--primary-color);
+}
+
+/* Custom container padding */
+.container.py-5 {
+  padding-top: 3rem !important;
+  padding-bottom: 3rem !important;
+}

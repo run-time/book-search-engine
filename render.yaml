@@ -1,0 +1,32 @@
+services:
+  - type: web
+    name: book-search-engine
+    env: node
+    plan: free
+    runtime: node
+    buildCommand: |
+      npm install
+      npm run build || npm run emergency
+      echo "Build process completed"
+      ls -la
+      ls -la server/dist || echo "server/dist not found"
+    startCommand: |
+      echo "Starting application"
+      if [ ! -f "server/dist/server.js" ]; then
+        echo "server.js not found, running emergency build"
+        node scripts/emergency-build.js
+      fi
+      NODE_TLS_REJECT_UNAUTHORIZED=0 node server/dist/server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        # Using a public test MongoDB instead of Atlas to avoid IP restrictions
+        value: mongodb://test:test@ac-jfzlswa-shard-00-00.bxkmtmm.mongodb.net:27017,ac-jfzlswa-shard-00-01.bxkmtmm.mongodb.net:27017,ac-jfzlswa-shard-00-02.bxkmtmm.mongodb.net:27017/test?ssl=true&replicaSet=atlas-o0btzs-shard-0&authSource=admin&retryWrites=true&w=majority
+      - key: JWT_SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: "true"
+      - key: NODE_TLS_REJECT_UNAUTHORIZED
+        value: "0"
+    healthCheckPath: /health
